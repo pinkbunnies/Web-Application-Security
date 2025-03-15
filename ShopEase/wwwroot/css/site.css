@@ -1,0 +1,167 @@
+/* Variables de tema */
+:root {
+    --color-primario: #8B0000;    /* Rojo sangre oscuro */
+    --color-secundario: #ffffff;   /* Blanco */
+    --color-accent: #A30000;       /* Rojo sangre brillante, para acentos */
+    --color-fondo: #ffffff;        /* Fondo blanco */
+    --color-bg-main: #f7f7f7;      /* Fondo de contenedores, muy suave */
+    --color-text: #000000;         /* Texto negro para fondos claros */
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --border-radius: 8px;
+}
+
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+}
+
+body {
+    background: var(--color-fondo);
+    color: var(--color-text);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Cabecera y menú de navegación */
+header {
+    background: var(--color-primario);
+    color: var(--color-secundario);
+    padding: 20px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+header nav ul li a {
+    color: var(--color-secundario);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+header nav ul li a:hover {
+    background: var(--color-accent);
+    transform: scale(1.05);
+}
+
+/* Contenedor principal */
+main {
+    background: var(--color-bg-main);
+    margin: 30px auto;
+    max-width: 1000px;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+/* Tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table thead {
+    background: var(--color-primario);
+    color: var(--color-secundario);
+}
+
+table th, table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+table tbody tr {
+    transition: background 0.3s ease;
+}
+
+table tbody tr:hover {
+    background: rgba(139, 0, 0, 0.1);
+}
+
+/* Botones */
+button, input[type="submit"], input[type="button"] {
+    background: var(--color-primario);
+    color: var(--color-secundario);
+    border: none;
+    padding: 12px 25px;
+    margin: 5px 0;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+button:hover, input[type="submit"]:hover, input[type="button"]:hover {
+    background: var(--color-accent);
+    transform: scale(1.05);
+}
+
+/* Inputs y selects */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: var(--border-radius);
+    margin: 10px 0 20px;
+    background: var(--color-fondo);
+    color: var(--color-text);
+    transition: border 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--color-primario);
+    outline: none;
+}
+
+/* Enlaces */
+a {
+    color: var(--color-primario);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-accent);
+}
+
+/* Formularios */
+form {
+    margin-bottom: 20px;
+}
+
+/* Encabezados */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 20px;
+}
+
+/* Pie de página */
+footer {
+    background: var(--color-primario);
+    color: var(--color-secundario);
+    padding: 20px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+}

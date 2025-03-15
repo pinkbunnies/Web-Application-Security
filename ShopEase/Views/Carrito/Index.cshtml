@@ -1,0 +1,43 @@
+@model IEnumerable<ShopApp.Models.LineaCarrito>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Carrito";
+    var total = ViewBag.Total;
+}
+<h1>Carrito</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Categoría</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Producto.ProductoID</td>
+            <td>@item.Producto.Nombre</td>
+            <td>@item.Producto.Precio.ToString("C")</td>
+            <td>@item.Producto.Categoria</td>
+            <td>
+                <form action="/Carrito/Actualizar" method="get" style="display:inline;">
+                    <input type="hidden" name="productoID" value="@item.Producto.ProductoID" />
+                    <input type="number" name="cantidad" value="@item.Cantidad" min="0" style="width:60px;" />
+                    <button type="submit">Actualizar</button>
+                </form>
+            </td>
+            <td>@( (item.Producto.Precio * item.Cantidad).ToString("C") )</td>
+            <td>
+                <a href="/Carrito/Eliminar?productoID=@item.Producto.ProductoID">Eliminar</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+<h2>Total: @(total.ToString("C"))</h2>

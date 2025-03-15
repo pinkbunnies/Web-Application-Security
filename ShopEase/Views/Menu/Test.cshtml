@@ -1,0 +1,14 @@
+@model IEnumerable<ShopApp.Models.Producto>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Prueba del Carrito";
+    var total = ViewBag.Total;
+}
+<h1>Contenido del Carrito</h1>
+<ul>
+    @foreach (var producto in Model)
+    {
+        <li>@producto.Nombre - @producto.Precio.ToString("C") - @producto.Categoria</li>
+    }
+</ul>
+<h2>Total: @total.ToString("C")</h2>
