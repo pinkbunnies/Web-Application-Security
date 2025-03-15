@@ -5,7 +5,7 @@
     --color-accent: #A30000;       /* Rojo sangre brillante, para acentos */
     --color-fondo: #ffffff;        /* Fondo blanco */
     --color-bg-main: #f7f7f7;      /* Fondo de contenedores, muy suave */
-    --color-text: #000000;         /* Texto negro para fondos claros */
+    --color-text: #000000;         /* Texto negro sobre fondos claros */
     --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --border-radius: 8px;
 }
@@ -43,15 +43,17 @@ header nav ul {
 header nav ul li a {
     color: var(--color-secundario);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: normal;
     padding: 10px 20px;
     border-radius: var(--border-radius);
-    transition: background 0.3s ease, transform 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease, font-weight 0.3s ease;
 }
 
 header nav ul li a:hover {
     background: var(--color-accent);
     transform: scale(1.05);
+    color: var(--color-secundario);
+    font-weight: bold;
 }
 
 /* Contenedor principal */
@@ -154,6 +156,19 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 20px;
 }
 
+/* Contenedor para la imagen del producto en Detalle */
+.product-image-container {
+    width: 256px;
+    height: 256px;
+    background-color: #ccc; /* Fondo gris */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 20px auto;
+    border: 2px solid var(--color-primario);
+    border-radius: var(--border-radius);
+}
+
 /* Pie de página */
 footer {
     background: var(--color-primario);
@@ -164,4 +179,14 @@ footer {
     width: 100%;
     bottom: 0;
     box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+}
+
+/* Estilo para el aviso temporal */
+.alerta {
+    background-color: var(--color-primario);
+    color: var(--color-secundario);
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: var(--border-radius);
+    text-align: center;
 }

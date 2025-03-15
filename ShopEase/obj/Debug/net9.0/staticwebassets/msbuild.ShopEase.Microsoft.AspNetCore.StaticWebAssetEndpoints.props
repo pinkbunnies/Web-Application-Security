@@ -15,14 +15,14 @@
     <StaticWebAssetEndpoint Include="_content/ShopEase/css/site.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-DoFxXQ8F3G9Yl3R67I/Qi6KDQ\u002BxSLP4hH84Etyd8Hyw="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"3909"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022DoFxXQ8F3G9Yl3R67I/Qi6KDQ\u002BxSLP4hH84Etyd8Hyw=\u0022"},{"Name":"Last-Modified","Value":"Sat, 15 Mar 2025 11:31:12 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-XMn5L939TahlCxBF2B4V0SbOH1b4rxDpQB8PjZJmqSM="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4474"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022XMn5L939TahlCxBF2B4V0SbOH1b4rxDpQB8PjZJmqSM=\u0022"},{"Name":"Last-Modified","Value":"Sat, 15 Mar 2025 12:07:08 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/ShopEase/css/site.qdeh62pmov.css">
+    <StaticWebAssetEndpoint Include="_content/ShopEase/css/site.kic8wqdhde.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"qdeh62pmov"},{"Name":"integrity","Value":"sha256-DoFxXQ8F3G9Yl3R67I/Qi6KDQ\u002BxSLP4hH84Etyd8Hyw="},{"Name":"label","Value":"_content/ShopEase/css/site.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"3909"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022DoFxXQ8F3G9Yl3R67I/Qi6KDQ\u002BxSLP4hH84Etyd8Hyw=\u0022"},{"Name":"Last-Modified","Value":"Sat, 15 Mar 2025 11:31:12 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"kic8wqdhde"},{"Name":"integrity","Value":"sha256-XMn5L939TahlCxBF2B4V0SbOH1b4rxDpQB8PjZJmqSM="},{"Name":"label","Value":"_content/ShopEase/css/site.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4474"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022XMn5L939TahlCxBF2B4V0SbOH1b4rxDpQB8PjZJmqSM=\u0022"},{"Name":"Last-Modified","Value":"Sat, 15 Mar 2025 12:07:08 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/ShopEase/db/shop.sql">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\db\shop.sql'))</AssetFile>

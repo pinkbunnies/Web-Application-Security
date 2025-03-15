@@ -1,0 +1,29 @@
+@model ShopApp.Models.Producto
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Detalle del Producto";
+}
+<div class="producto-detalle" style="text-align: center;">
+    <h1>@Model.Nombre</h1>
+    <div class="product-image-container" 
+         style="background-image: @(String.IsNullOrEmpty(Model.ImagenUrl) ? "none" : $"url('{Model.ImagenUrl}')");">
+    </div>
+    <p><strong>Precio:</strong> @Model.Precio.ToString("C")</p>
+    <p><strong>Categoría:</strong> @Model.Categoria</p>
+    <button onclick="window.location.href='/Productos/AgregarDetalle?id=@Model.ProductoID'">Agregar al Carrito</button>
+    <br /><br />
+    <button onclick="history.back()">Volver atrás</button>
+</div>
+
+@if (TempData["Alert"] != null)
+{
+    <div id="alerta" class="alerta">
+         @TempData["Alert"]
+    </div>
+    <script>
+         setTimeout(function(){
+              var alerta = document.getElementById("alerta");
+              if(alerta) { alerta.style.display = 'none'; }
+         }, 3000);
+    </script>
+}

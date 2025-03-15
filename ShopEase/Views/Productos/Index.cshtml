@@ -23,6 +23,8 @@
             <td>@producto.Precio.ToString("C")</td>
             <td>@producto.Categoria</td>
             <td>
+                <!-- Enlace para ver detalles -->
+                <a href="/Productos/Detalle?id=@producto.ProductoID">Ver detalles</a> |
                 <!-- Por defecto se añade 1 unidad -->
                 <a href="/Carrito/Agregar?productoID=@producto.ProductoID&cantidad=1">Añadir al Carrito</a>
             </td>
