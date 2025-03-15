@@ -2,12 +2,24 @@
 :root {
     --color-primario: #8B0000;    /* Rojo sangre oscuro */
     --color-secundario: #ffffff;   /* Blanco */
-    --color-accent: #A30000;       /* Rojo sangre brillante, para acentos */
+    --color-accent: #A30000;       /* Rojo sangre brillante */
     --color-fondo: #ffffff;        /* Fondo blanco */
-    --color-bg-main: #f7f7f7;      /* Fondo de contenedores, muy suave */
-    --color-text: #000000;         /* Texto negro sobre fondos claros */
-    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --color-bg-main: #f7f7f7;      /* Fondo de contenedores suave */
+    --color-text: #000000;         /* Texto negro */
+    --transition-speed: 0.3s;
     --border-radius: 8px;
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Variables para alto contraste */
+body.alto-contraste {
+    --color-primario: #000000;
+    --color-secundario: #ffffff;
+    --color-accent: #ffffff;
+    --color-fondo: #000000;
+    --color-bg-main: #333333;
+    --color-text: #ffffff;
+    --shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
 }
 
 /* Reset básico */
@@ -15,45 +27,130 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: var(--font-family);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Base */
 body {
     background: var(--color-fondo);
     color: var(--color-text);
     line-height: 1.6;
     padding: 20px;
+    transition: background var(--transition-speed), color var(--transition-speed);
 }
 
-/* Cabecera y menú de navegación */
+/* Cabecera y menú */
 header {
     background: var(--color-primario);
     color: var(--color-secundario);
-    padding: 20px 0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    padding: 20px 10px;
+    box-shadow: var(--shadow);
+    position: relative;
+    width: 100%;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    /* Alineamos los enlaces a la izquierda */
+    justify-content: flex-start;
+    width: 100%;
 }
 
 header nav ul {
     list-style: none;
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
     gap: 30px;
+    margin: 0;
+    padding: 0;
 }
 
+/* Enlaces del menú */
 header nav ul li a {
     color: var(--color-secundario);
     text-decoration: none;
     font-weight: normal;
     padding: 10px 20px;
     border-radius: var(--border-radius);
-    transition: background 0.3s ease, transform 0.3s ease, font-weight 0.3s ease;
+    transition: background var(--transition-speed), transform var(--transition-speed), font-weight var(--transition-speed);
 }
 
-header nav ul li a:hover {
+header nav ul li a:hover,
+header nav ul li a:focus {
     background: var(--color-accent);
     transform: scale(1.05);
-    color: var(--color-secundario);
     font-weight: bold;
+    color: var(--color-secundario);
+}
+
+/* Botón de menú hamburguesa */
+#menu-toggle {
+    display: none;
+    background: var(--color-accent);
+    color: var(--color-secundario);
+    border: none;
+    padding: 8px 16px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background var(--transition-speed), transform var(--transition-speed);
+    margin-right: 10px;
+}
+
+#menu-toggle:hover,
+#menu-toggle:focus {
+    background: var(--color-secundario);
+    color: var(--color-primario);
+    transform: scale(1.05);
+}
+
+/* Mostrar menú en dispositivos pequeños */
+@media (max-width: 768px) {
+    /* Ocultar el menú por defecto */
+    header nav ul {
+        display: none;
+    }
+    /* Mostrar el botón de hamburguesa */
+    #menu-toggle {
+        display: block;
+    }
+    /* Cuando se activa, mostrar el menú desplegable */
+    #menu-list.mostrar-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        position: absolute;
+        top: 60px;
+        left: 10px;
+        background: var(--color-primario);
+        padding: 10px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        z-index: 1000;
+        text-align: left;
+        width: calc(100% - 20px);
+    }
+}
+
+/* Botón de alto contraste */
+#toggle-contraste {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--color-accent);
+    color: var(--color-secundario);
+    border: none;
+    padding: 8px 16px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background var(--transition-speed), transform var(--transition-speed);
+}
+
+#toggle-contraste:hover,
+#toggle-contraste:focus {
+    background: var(--color-secundario);
+    color: var(--color-primario);
+    transform: scale(1.05);
 }
 
 /* Contenedor principal */
@@ -63,7 +160,8 @@ main {
     max-width: 1000px;
     padding: 30px;
     border-radius: var(--border-radius);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    box-shadow: var(--shadow);
+    transition: background var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 /* Tablas */
@@ -85,7 +183,7 @@ table th, table td {
 }
 
 table tbody tr {
-    transition: background 0.3s ease;
+    transition: background var(--transition-speed);
 }
 
 table tbody tr:hover {
@@ -101,7 +199,7 @@ button, input[type="submit"], input[type="button"] {
     margin: 5px 0;
     border-radius: var(--border-radius);
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
+    transition: background var(--transition-speed), transform var(--transition-speed);
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
@@ -123,7 +221,7 @@ textarea {
     margin: 10px 0 20px;
     background: var(--color-fondo);
     color: var(--color-text);
-    transition: border 0.3s ease;
+    transition: border var(--transition-speed);
 }
 
 input[type="text"]:focus,
@@ -135,20 +233,15 @@ textarea:focus {
     outline: none;
 }
 
-/* Enlaces */
+/* Enlaces generales */
 a {
     color: var(--color-primario);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color var(--transition-speed);
 }
 
-a:hover {
+a:hover, a:focus {
     color: var(--color-accent);
-}
-
-/* Formularios */
-form {
-    margin-bottom: 20px;
 }
 
 /* Encabezados */
@@ -160,7 +253,7 @@ h1, h2, h3, h4, h5, h6 {
 .product-image-container {
     width: 256px;
     height: 256px;
-    background-color: #ccc; /* Fondo gris */
+    background-color: #ccc;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -173,15 +266,16 @@ h1, h2, h3, h4, h5, h6 {
 footer {
     background: var(--color-primario);
     color: var(--color-secundario);
-    padding: 20px 0;
+    padding: 20px;
     text-align: center;
     position: fixed;
-    width: 100%;
-    bottom: 0;
+    width: calc(100% - 40px);
+    bottom: 20px;
+    left: 20px;
     box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
 }
 
-/* Estilo para el aviso temporal */
+/* Aviso temporal */
 .alerta {
     background-color: var(--color-primario);
     color: var(--color-secundario);
@@ -189,4 +283,18 @@ footer {
     margin-top: 20px;
     border-radius: var(--border-radius);
     text-align: center;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 480px) {
+    header {
+        padding: 15px 10px;
+    }
+    #menu-toggle {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+    main {
+        padding: 15px;
+    }
 }

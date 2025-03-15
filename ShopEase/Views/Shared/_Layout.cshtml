@@ -8,12 +8,15 @@
 <body>
     <header>
         <nav>
-            <ul>
+            <!-- Botón de menú hamburguesa para pantallas pequeñas -->
+            <button id="menu-toggle" aria-label="Abrir menú">☰</button>
+            <ul id="menu-list">
                 <li><a href="/Menu/Index">Inicio</a></li>
                 <li><a href="/Productos/Index">Productos</a></li>
                 <li><a href="/Carrito/Index">Carrito</a></li>
             </ul>
         </nav>
+        <button id="toggle-contraste" aria-label="Cambiar a alto contraste">Alto Contraste</button>
     </header>
     <main>
         @RenderBody()
@@ -21,5 +24,28 @@
     <footer>
         <p>&copy; 2025 ShopApp. Creado por Esteban M. Cruz Seoane</p>
     </footer>
+    
+    <script>
+        // Botón para alternar modo alto contraste
+        document.getElementById('toggle-contraste').addEventListener('click', function () {
+            document.body.classList.toggle('alto-contraste');
+            this.innerText = document.body.classList.contains('alto-contraste') ? 'Modo Normal' : 'Alto Contraste';
+        });
+
+        // Menú de hamburguesa para pantallas pequeñas
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuList = document.getElementById('menu-list');
+
+        menuToggle.addEventListener('click', function () {
+            menuList.classList.toggle('mostrar-menu');
+        });
+
+        // Cerrar menú si se hace clic fuera del menú en dispositivos móviles
+        document.addEventListener('click', function(e) {
+            if (!menuToggle.contains(e.target) && !menuList.contains(e.target)) {
+                menuList.classList.remove('mostrar-menu');
+            }
+        });
+    </script>
 </body>
 </html>
