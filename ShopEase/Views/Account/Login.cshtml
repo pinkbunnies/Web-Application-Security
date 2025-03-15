@@ -1,0 +1,41 @@
+@model ShopApp.Models.LoginViewModel
+@{
+    ViewData["Title"] = "Iniciar Sesión";
+    Layout = "~/Views/Shared/_LayoutAuth.cshtml";
+}
+<h2 style="text-align: center;">Iniciar Sesión</h2>
+
+@if(TempData["LoginError"] != null)
+{
+    <div id="loginError" style="background-color: red; color: white; padding: 10px; margin-bottom: 10px; text-align: center;">
+        @TempData["LoginError"]
+    </div>
+    <script>
+        setTimeout(function(){
+            var elem = document.getElementById("loginError");
+            if(elem) { elem.style.display = "none"; }
+        }, 3000);
+    </script>
+}
+
+<form asp-action="Login" method="post">
+    @Html.AntiForgeryToken()
+    <div style="margin-bottom:10px;">
+        <label asp-for="Username" style="display:block;">Nombre de usuario:</label>
+        <input asp-for="Username" class="form-control" />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+    <div style="margin-bottom:10px;">
+        <label asp-for="Password" style="display:block;">Contraseña:</label>
+        <input asp-for="Password" type="password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div style="text-align: center;">
+        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+    </div>
+</form>
+<div style="text-align: center; margin-top:15px;">
+    <button type="button" class="btn btn-secondary" onclick="window.location.href='@Url.Action("Register", "Account")'">
+        Ir a Registro
+    </button>
+</div>

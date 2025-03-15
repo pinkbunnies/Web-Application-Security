@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - ShopApp</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        /* Centrado vertical y horizontal */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: var(--color-fondo);
+            margin: 0;
+        }
+        .auth-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background: var(--color-bg-main);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        @RenderBody()
+    </div>
+</body>
+</html>

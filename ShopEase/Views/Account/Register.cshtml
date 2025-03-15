@@ -1,0 +1,51 @@
+@model ShopApp.Models.RegisterViewModel
+@{
+    ViewData["Title"] = "Registro";
+    Layout = "~/Views/Shared/_LayoutAuth.cshtml";
+}
+<h2 style="text-align: center;">Registro</h2>
+
+@* Muestra un resumen de validación si hay errores *@
+<div>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+</div>
+
+<form asp-action="Register" method="post">
+    @Html.AntiForgeryToken()
+    <div style="margin-bottom:10px;">
+        <label asp-for="Nombre" style="display:block;">Nombre:</label>
+        <input asp-for="Nombre" class="form-control" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+    <div style="margin-bottom:10px;">
+        <label asp-for="Apellidos" style="display:block;">Apellidos:</label>
+        <input asp-for="Apellidos" class="form-control" />
+        <span asp-validation-for="Apellidos" class="text-danger"></span>
+    </div>
+    <div style="margin-bottom:10px;">
+        <label asp-for="Username" style="display:block;">Nombre de usuario:</label>
+        <input asp-for="Username" class="form-control" />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+    <div style="margin-bottom:10px;">
+        <label asp-for="Email" style="display:block;">Correo electrónico:</label>
+        <input asp-for="Email" type="email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div style="margin-bottom:10px;">
+        <label asp-for="Password" style="display:block;">Contraseña:</label>
+        <input asp-for="Password" type="password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div style="margin-bottom:10px;">
+        <label asp-for="ConfirmPassword" style="display:block;">Confirmar contraseña:</label>
+        <input asp-for="ConfirmPassword" type="password" class="form-control" />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+    <div style="text-align: center;">
+        <button type="submit" class="btn btn-primary">Registrarse</button>
+        <button type="button" class="btn btn-secondary" onclick="window.location.href='@Url.Action("Login", "Account")'" style="margin-left:10px;">
+            Cancelar
+        </button>
+    </div>
+</form>

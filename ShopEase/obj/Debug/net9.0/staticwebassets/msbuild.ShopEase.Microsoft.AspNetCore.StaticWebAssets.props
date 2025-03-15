@@ -48,8 +48,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>uetevuqz06</Fingerprint>
-      <Integrity>mlzZ1vtGgIyjLeGZRcxbVKSxEudWjzjJgkTGiziU4uE=</Integrity>
+      <Fingerprint>tjyazi1db2</Fingerprint>
+      <Integrity>l1ccnNixCbrGg8peqPgBwQGIvZIxsUa/xnIhU4G+FDo=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\db\shop.sql'))</OriginalItemSpec>

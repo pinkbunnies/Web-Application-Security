@@ -55,8 +55,9 @@ namespace ShopApp.Controllers
             Producto? producto = ObtenerProducto(id);
             if (producto != null)
             {
-                // Se utiliza la instancia estática del carrito del CarritoController
-                CarritoController.carrito.AgregarProducto(producto, 1);
+                // Utiliza el método estático de CarritoController para obtener el carrito del usuario actual
+                var carrito = CarritoController.GetUserCarrito(User);
+                carrito.AgregarProducto(producto, 1);
                 TempData["Alert"] = "Producto añadido al carrito.";
             }
             return RedirectToAction("Detalle", new { id = id });

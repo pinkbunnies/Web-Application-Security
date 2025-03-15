@@ -49,3 +49,28 @@ INSERT INTO Productos (ProductoID, Nombre, Precio, Categoria) VALUES
 (24, 'Pantalón casual', 39.99, 'Ropa'),
 (25, 'Zapatos deportivos', 59.99, 'Calzado'),
 (26, 'Bolso de mano', 79.99, 'Accesorios');
+
+-- Crear la base de datos y usarla
+CREATE DATABASE IF NOT EXISTS shop;
+USE shop;
+
+-- Tabla de productos disponibles
+DROP TABLE IF EXISTS Productos;
+CREATE TABLE Productos (
+    ProductoID INT PRIMARY KEY,
+    Nombre VARCHAR(100) NOT NULL,
+    Precio DECIMAL(10,2) NOT NULL,
+    Categoria VARCHAR(100) NOT NULL
+);
+
+-- Tabla para el carrito de compras
+DROP TABLE IF EXISTS Carrito;
+CREATE TABLE Carrito (
+    ProductoID INT NOT NULL,
+    Nombre VARCHAR(100) NOT NULL,
+    Precio DECIMAL(10,2) NOT NULL,
+    Categoria VARCHAR(100) NOT NULL,
+    Cantidad INT NOT NULL,
+    OwnerId VARCHAR(450) NOT NULL,
+    PRIMARY KEY (ProductoID, OwnerId)
+);

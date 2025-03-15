@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ShopEase")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7637c881c430f0519478dba22fe0828575d44b58")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+21cf2c5b0eefd22511c7d5fdfb7a8d4961da71f1")]
 [assembly: System.Reflection.AssemblyProductAttribute("ShopEase")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ShopEase")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
